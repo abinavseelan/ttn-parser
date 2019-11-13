@@ -38,9 +38,11 @@ try {
 
       if (speed && fup && price) {
         console.log(`Better plan found: ${plans[i][COLUMNS.PLAN_NAME]}`);
-        process.exit(2);
+        process.exit(0);
       }
     }
+
+    console.log('You\'re on the best plan!');
   })();
 } catch (err) {
   console.error('Puppeteer error');
