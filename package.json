@@ -1,0 +1,28 @@
+{
+  "name": "ttn-parser",
+  "version": "1.0.0",
+  "description": "Script to check TTN Network prices and alert if there is a plan change or price drop",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abinavseelan/ttn-parser.git"
+  },
+  "keywords": [],
+  "author": "Abinav Nithya Seelan <abinav.n.seelan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abinavseelan/ttn-parser/issues"
+  },
+  "homepage": "https://github.com/abinavseelan/ttn-parser#readme",
+  "dependencies": {
+    "puppeteer": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
