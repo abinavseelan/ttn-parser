@@ -33,9 +33,9 @@ function parseTable(sel) {
 function byteRangeComparator(a, b) {
   const byteOrder = {
     k: 0,
-    m: 0,
-    g: 0,
-    t: 0,
+    m: 1,
+    g: 2,
+    t: 3,
   };
 
   if (byteOrder[a.toLowerCase()] > byteOrder[b.toLowerCase()]) {
@@ -52,11 +52,11 @@ function byteRangeComparator(a, b) {
  * @returns {number} - 1 if greater or 0 is smaller
  */
 function compareSpeed(planSpeed, currentSpeed) {
-  let parsedPlanSpeed = planSpeed.split('bps');
+  let parsedPlanSpeed = planSpeed.split(/[Bb][Pp][Ss]/)[0];
   const planSpeedByteRange = parsedPlanSpeed[parsedPlanSpeed.length - 1];
   parsedPlanSpeed = parseInt(parsedPlanSpeed, 10);
 
-  let parsedCurrentSpeed = currentSpeed.split('bps');
+  let parsedCurrentSpeed = currentSpeed.split(/[Bb][Pp][Ss]/)[0];
   const currentSpeedByteRange = parsedCurrentSpeed[parsedCurrentSpeed.length - 1];
   parsedCurrentSpeed = parseInt(parsedCurrentSpeed, 10);
 
@@ -77,11 +77,11 @@ function compareSpeed(planSpeed, currentSpeed) {
  * @returns {number} - 1 if greater or 0 is smaller
  */
 function compareFup(planFup, currentFup) {
-  let parsedPlanFup = planFup.split('bps');
+  let parsedPlanFup = planFup.split(/[Bb]/)[0];
   const planFupByteRange = parsedPlanFup[parsedPlanFup.length - 1];
   parsedPlanFup = parseInt(parsedPlanFup, 10);
 
-  let parsedCurrentFup = currentFup.split('bps');
+  let parsedCurrentFup = currentFup.split(/[Bb]/)[0];
   const currentFupByteRange = parsedCurrentFup[parsedCurrentFup.length - 1];
   parsedCurrentFup = parseInt(parsedCurrentFup, 10);
 
