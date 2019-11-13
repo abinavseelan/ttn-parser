@@ -20,9 +20,24 @@
   "dependencies": {
     "puppeteer": "^2.0.0"
   },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-merge": "post-merge-install",
+      "post-rebase": "post-merge-install",
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^10.0.0-1",
+    "post-merge-install": "^0.3.0"
   }
 }
