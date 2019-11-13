@@ -17,6 +17,7 @@ const COLUMNS = {
 
 (async () => {
   try {
+    throw new Error('asdad');
     const browser = await puppeteer.launch({
       headless: true,
     });
