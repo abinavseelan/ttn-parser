@@ -4,7 +4,8 @@
   "description": "Script to check TTN Network prices and alert if there is a plan change or price drop",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,8 @@
     "hooks": {
       "post-merge": "post-merge-install",
       "post-rebase": "post-merge-install",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
     }
   },
   "devDependencies": {
@@ -37,6 +39,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "husky": "^3.0.9",
+    "jest": "^24.9.0",
     "lint-staged": "^10.0.0-1",
     "post-merge-install": "^0.3.0"
   }
