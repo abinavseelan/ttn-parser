@@ -15,8 +15,8 @@ const COLUMNS = {
 };
 
 
-try {
-  (async () => {
+(async () => {
+  try {
     const browser = await puppeteer.launch({
       headless: true,
     });
@@ -38,18 +38,18 @@ try {
 
       if (speed && fup && price) {
         console.log(`Better plan found: ${plans[i][COLUMNS.PLAN_NAME]}`);
-        process.exit(0);
+        process.exit(2);
       }
     }
 
     console.log('You\'re on the best plan!');
-  })();
-} catch (err) {
-  console.error('Puppeteer error');
-  if (err) {
-    console.error(err);
-    console.error(err.stack);
-  }
+  } catch (err) {
+    console.error('Puppeteer error');
+    if (err) {
+      console.error(err);
+      console.error(err.stack);
+    }
 
-  process.exit(1);
-}
+    process.exit(1);
+  }
+})();
