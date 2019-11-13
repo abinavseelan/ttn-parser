@@ -29,6 +29,8 @@ try {
      */
     const plans = await page.evaluate(parseTable, 'table[style="border-collapse: collapse;"]');
 
+    await browser.close();
+
     for (let i = 0; i < plans.length; i += 1) {
       const speed = compareSpeed(plans[i][COLUMNS.SPEED], currentPlan.speed);
       const fup = compareFup(plans[i][COLUMNS.FUP], currentPlan.fup);
@@ -36,11 +38,9 @@ try {
 
       if (speed && fup && price) {
         console.log(`Better plan found: ${plans[i][COLUMNS.PLAN_NAME]}`);
-        break;
+        process.exit(2);
       }
     }
-
-    await browser.close();
   })();
 } catch (err) {
   console.error('Puppeteer error');

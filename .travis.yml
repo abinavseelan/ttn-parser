@@ -2,3 +2,10 @@ language: node_js
 node_js:
   - 12
 script: npm start
+notifications:
+  slack: campvanilla:hiyxbpbi43CtrNh8egdlWcld
+    on_success: always
+    on_failure: always
+    template:
+      - "%{message} | %{result}"
+      - "Cron Job Details: %{build_url}"
