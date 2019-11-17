@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eux # exit as soon as any line in the script fails
 
-if [ $TRAVIS_PULL_REQUEST ]; then
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   npm run test
   RESULT=$?
 
