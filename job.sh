@@ -1,7 +1,7 @@
 #!/bin/bash
 # run this file through `shellcheck` and/or `shfmt` when editing to ensure there are no warnings/issues.
 
-set -eux # exit as soon as any line in the script fails
+set -eu # exit as soon as any line in the script fails
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   npm run test
